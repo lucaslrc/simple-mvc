@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using CadastroCliente.Models;
+using simple_mvc.Models;
 
 namespace CadastroCliente.Data
 {

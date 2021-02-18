@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using CadastroCliente.Models;
+using simple_mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using simple_mvc.Methods;
-using simple_mvc.Models;
 
 namespace simple_mvc.Controllers
 {
@@ -33,6 +32,13 @@ namespace simple_mvc.Controllers
         public IActionResult Cadastrar()
         {
             return View();
+        }
+
+        public ViewResult Listar()
+        {
+            var lista = new ListarDadosCliente();
+
+            return View("Index", lista.Listar());
         }
 
         public IActionResult InserirDados(string Nome, string Cpf, DateTime DataNascimento, string Sexo, 

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CadastroCliente.Models
+namespace simple_mvc.Models
 {
     public class Cliente
     {

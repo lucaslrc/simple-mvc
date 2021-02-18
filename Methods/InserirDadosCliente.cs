@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using CadastroCliente.Data;
-using CadastroCliente.Models;
+using simple_mvc.Models;
 
 namespace simple_mvc.Methods
 {

@@ -14,8 +14,6 @@ namespace simple_mvc
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
-
             using (var db = new MvcContext())
             {
                 if (db.Database.CanConnect())
@@ -30,6 +28,8 @@ namespace simple_mvc
                     System.Environment.Exit(0);
                 }
             }
+            
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
