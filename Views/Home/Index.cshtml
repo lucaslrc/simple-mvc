@@ -1,9 +1,9 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="container-sm">
-    <h1>Bem-vindo(a)!</h1>
-</div>
-
+<form asp-action="ListarClientes">
+    <input type="submit" value="Listar Clientes" class="btn btn-primary">
+</form>
+<br>
+<strong>@ViewBag.MessageLista</strong>
+@ViewData["ListaClientes"]

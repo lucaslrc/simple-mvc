@@ -1,0 +1,29 @@
+@model IEnumerable<simple_mvc.Models.Cliente>
+@{
+    ViewData["Title"] = "ListaClientes";
+}
+<form asp-action="ListarClientes">
+    <input type="submit" value="Listar Clientes" class="btn btn-primary">
+</form>
+<br>
+<div class="container-sm">
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ID)</th>
+            <th>@Html.DisplayNameFor(model => model.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Cpf)</th>
+        </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cpf)</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", new { id = item.ID }) |
+                        @Html.ActionLink("Remover", "RemoverDados", new { id = item.ID }) 
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
