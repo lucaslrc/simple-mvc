@@ -11,35 +11,47 @@ namespace CadastroCliente.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long ID { get; set; }
 
+        [Required]
         [BindProperty]
         public string Nome { get; set; }
 
-        // [DataType(DataType.Date)]
-        // public DateTime DataNascimento { get; set; }
+        [Required]
+        [Range(1, 11)]
+        public string Cpf { get; set; }
 
-        // [DataType(DataType.Text)]
-        // public string Sexo { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime DataNascimento { get; set; }
+        
+        [Required]
+        [DataType(DataType.Text)]
+        public string Sexo { get; set; }
+        
+        [Required]
+        [DataType(DataType.PostalCode), StringLength(8)]
+        public string Cep { get; set; }
 
-        // [StringLength(8)]
-        // [DataType(DataType.PostalCode)]
-        // public string Cep { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        public string Endereco { get; set; }
 
-        // [DataType(DataType.Text)]
-        // public string Endereco { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        public string Numero { get; set; }
 
-        // [DataType(DataType.Text)]
-        // public string Numero { get; set; }
+        [DataType(DataType.Text)]
+        public string Complemento { get; set; }
 
-        // [DataType(DataType.Text)]
-        // public string Complemento { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        public string Bairro { get; set; }
 
-        // [DataType(DataType.Text)]
-        // public string Bairro { get; set; }
+        [Required]
+        [StringLength(2)]
+        public string Estado { get; set; }
 
-        // [StringLength(2)]
-        // public string Estado { get; set; }
-
-        // [DataType(DataType.Text)]
-        // public string Cidade { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        public string Cidade { get; set; }
     }
 }

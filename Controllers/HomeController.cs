@@ -35,11 +35,15 @@ namespace simple_mvc.Controllers
             return View();
         }
 
-        public IActionResult InsertData(String nameString)
+        public IActionResult InserirDados(string Nome, string Cpf, DateTime DataNascimento, string Sexo, 
+                                string Cep, string Endereco, string Numero, string Complemento, 
+                                    string Bairro, string Estado, string Cidade)
         {
-            var dbInsert = new InsertData();
+            var dbInsert = new InserirDadosCliente();
 
-            dbInsert.Insert(nameString);
+            ViewBag.Message = dbInsert.Inserir(Nome, Cpf, DataNascimento, Sexo, 
+                                                Cep, Endereco, Numero, Complemento, 
+                                                    Bairro, Estado, Cidade);
 
             return View("Cadastrar");
         }

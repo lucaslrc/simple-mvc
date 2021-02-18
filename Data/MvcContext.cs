@@ -19,16 +19,17 @@ namespace CadastroCliente.Data
             modelBuilder.Entity<Cliente>(entity =>
             {
                 entity.HasKey(e => e.ID);
-                entity.Property(e => e.Nome);
-                // entity.Property(e => e.DataNascimento);
-                // entity.Property(e => e.Sexo);
-                // entity.Property(e => e.Cep);
-                // entity.Property(e => e.Endereco);
-                // entity.Property(e => e.Numero);
-                // entity.Property(e => e.Complemento);
-                // entity.Property(e => e.Bairro);
-                // entity.Property(e => e.Estado);
-                // entity.Property(e => e.Cidade);
+                entity.Property(e => e.Nome).IsRequired();
+                entity.Property(e => e.Cpf).IsRequired();
+                entity.Property(e => e.DataNascimento).IsRequired();
+                entity.Property(e => e.Sexo).IsRequired();
+                entity.Property(e => e.Cep).IsRequired();
+                entity.Property(e => e.Endereco).IsRequired();
+                entity.Property(e => e.Numero).IsRequired();
+                entity.Property(e => e.Complemento);
+                entity.Property(e => e.Bairro).IsRequired();
+                entity.Property(e => e.Estado).IsRequired();
+                entity.Property(e => e.Cidade).IsRequired();
             });
         }
     }

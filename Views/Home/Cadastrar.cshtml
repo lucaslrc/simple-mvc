@@ -1,0 +1,77 @@
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+<h1>@ViewData["Title"]</h1>
+
+<strong>@ViewBag.Message</strong>
+<br>
+<br>
+<div class="container-sm">
+    <form asp-controller="Home" asp-action="InserirDados" id="formCadastro">
+        <div class="form-group">
+            <label for="forInputNome">Nome</label>
+            <input type="text" class="form-control" id="inputNomeId" name="Nome" aria-describedby="nomeHelp" placeholder="Digite seu nome">
+        </div>
+        <div class="form-group">
+            <label for="forInputCpf">CPF</label>
+            <input type="text" class="form-control" id="inputCpfId" name="Cpf" aria-describedby="cpfHelp" placeholder="Digite seu CPF (apenas números)">
+        </div>
+        <div class="form-group">
+            <label for="forInputDataNascimento">Data de Nascimento</label>
+            <input type="date" class="form-control" id="inputDataNascimentoId" name="DataNascimento" aria-describedby="dataNascimentoHelp">
+        </div>
+        <div class="form-group">
+            <label for="forInputSexo">Sexo</label>
+            <select class="form-control form-control-sm" id="sexoDoClienteId" name="Sexo" aria-describedby="sexoHelp">
+                <option>Masculino</option>
+                <option>Feminino</option>
+                <option>Outro</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="forInputCep">Cep</label>
+            <input type="text" class="form-control" id="inputCepId" name="Cep" aria-describedby="cepHelp" placeholder="Digite o CEP (apenas números)">
+        </div>
+        <div class="form-group">
+            <label for="forInputEndereco">Endereço</label>
+            <input type="text" class="form-control" id="inputEnderecoId" name="Endereco" aria-describedby="enderecoHelp" readonly>
+        </div>
+        <div class="form-group">
+            <label for="forInputNumero">Número</label>
+            <input type="text" class="form-control" id="inputNumeroId" name="Numero" aria-describedby="numeroHelp">
+        </div>
+        <div class="form-group">
+            <label for="forInputComplemento">Complemento (opcional)</label>
+            <input type="text" class="form-control" id="inputComplementoId" name="Complemento" aria-describedby="complementoHelp">
+        </div>
+        <div class="form-group">
+            <label for="forInputBairro">Bairro</label>
+            <input type="text" class="form-control" id="inputBairroId" name="Bairro" aria-describedby="bairroHelp" readonly>
+        </div>
+        <div class="form-group">
+            <label for="forInputEstado">Estado</label>
+            <input type="text" class="form-control" id="inputEstadoId" name="Estado" aria-describedby="estadoHelp" readonly>
+        </div>
+        <div class="form-group">
+            <label for="forInputCidade">Cidade</label>
+            <input type="text" class="form-control" id="inputCidadeId" name="Cidade" aria-describedby="cidadeHelp" readonly>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $("#inputCepId").focusout(function(){
+		$.ajax({
+			url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+			dataType: 'json',
+			success: function(resposta){
+				$("#inputEnderecoId").val(resposta.logradouro);
+				$("#inputBairroId").val(resposta.bairro);
+				$("#inputEstadoId").val(resposta.uf);
+                $("#inputCidadeId").val(resposta.localidade);
+			}
+		});
+	});
+</script>
