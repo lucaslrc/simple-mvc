@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using simple_mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -34,11 +31,11 @@ namespace simple_mvc.Controllers
             return View();
         }
 
-        public ViewResult Listar()
+        public IActionResult Listar()
         {
             var lista = new ListarDadosCliente();
 
-            return View("Index", lista.Listar());
+            return View(lista.Listar());
         }
 
         public IActionResult InserirDados(string Nome, string Cpf, DateTime DataNascimento, string Sexo, 
