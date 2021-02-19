@@ -1,18 +1,21 @@
+@model simple_mvc.Models.Cliente;
 @{
-    ViewData["Title"] = "Cadastrar";
+    ViewData["Title"] = "Editar";
 }
-<h1>@ViewData["Title"]</h1>
-<br>
-<br>
+
 <div class="container-sm">
-    <form asp-controller="Home" asp-action="InserirDados" id="formCadastro">
+    <form asp-controller="Home" asp-action="EditarDados" id="formEditar">
+        <div class="form-group">
+            <label for="forInputID">ID</label>
+            <p>Cliente: @Html.DisplayFor(model => model.ID)</p>
+        </div>
         <div class="form-group">
             <label for="forInputNome">Nome</label>
             <input type="text" class="form-control" id="inputNomeId" name="Nome" aria-describedby="nomeHelp" placeholder="Digite seu nome">
         </div>
         <div class="form-group">
             <label for="forInputCpf">CPF</label>
-            <input type="text" class="form-control" id="inputCpfId" name="Cpf" aria-describedby="cpfHelp" placeholder="Digite seu CPF (apenas números)">
+            <input type="text" class="form-control" id="inputCpfId" name="Cpf" aria-describedby="cpfHelp" placeholder="Digite seu CPF (apenas números)" readonly>
         </div>
         <div class="form-group">
             <label for="forInputDataNascimento">Data de Nascimento</label>
@@ -73,3 +76,4 @@
 		});
 	});
 </script>
+

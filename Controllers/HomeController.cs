@@ -4,6 +4,7 @@ using simple_mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using simple_mvc.Methods;
+using System.Collections.Generic;
 
 namespace simple_mvc.Controllers
 {
@@ -31,6 +32,20 @@ namespace simple_mvc.Controllers
             return View();
         }
 
+        public IActionResult Editar(long ID)
+        {
+            var buscarCliente = new BuscarDadosCliente();
+
+            return View(buscarCliente.Buscar(ID));
+        }
+
+        public IActionResult EditarDados(long ID, string Nome, string Cpf, DateTime DataNascimento, string Sexo, 
+                                            string Cep, string Endereco, string Numero, string Complemento, 
+                                                string Bairro, string Estado, string Cidade)
+        {
+            return View("Index");
+        }
+
         public IActionResult ListarClientes()
         {
             var lista = new ListarDadosCliente();
@@ -56,7 +71,7 @@ namespace simple_mvc.Controllers
                                                 Cep, Endereco, Numero, Complemento, 
                                                     Bairro, Estado, Cidade);
 
-            return View("Cadastrar");
+            return View("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
