@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using CadastroCliente.Data;
+using simple_mvc.Data;
 using simple_mvc.Models;
 
 namespace simple_mvc.Methods

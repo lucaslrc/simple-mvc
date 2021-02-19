@@ -43,6 +43,11 @@ namespace simple_mvc.Controllers
                                             string Cep, string Endereco, string Numero, string Complemento, 
                                                 string Bairro, string Estado, string Cidade)
         {
+            var edita = new EditarDadosCliente();
+
+            ViewBag.Message = edita.Editar(ID, Nome, Cpf, DataNascimento, Sexo, 
+                                                Cep, Endereco, Numero, Complemento, 
+                                                    Bairro, Estado, Cidade);
             return View("Index");
         }
 
@@ -56,7 +61,7 @@ namespace simple_mvc.Controllers
         public IActionResult RemoverDados(long ID)
         {
             var dbRemover = new RemoverDadosCliente();
-            ViewBag.MessageLista = dbRemover.Remover(ID);
+            ViewBag.Message = dbRemover.Remover(ID);
 
             return View("Index");
         }
@@ -70,7 +75,6 @@ namespace simple_mvc.Controllers
             ViewBag.Message = dbInserir.Inserir(Nome, Cpf, DataNascimento, Sexo, 
                                                 Cep, Endereco, Numero, Complemento, 
                                                     Bairro, Estado, Cidade);
-
             return View("Index");
         }
 

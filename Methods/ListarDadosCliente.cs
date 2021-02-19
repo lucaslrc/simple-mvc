@@ -1,7 +1,7 @@
 using System.Linq;
 using simple_mvc.Models;
 using System.Collections.Generic;
-using CadastroCliente.Data;
+using simple_mvc.Data;
 
 namespace simple_mvc.Methods
 {

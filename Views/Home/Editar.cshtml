@@ -7,7 +7,7 @@
     <form asp-controller="Home" asp-action="EditarDados" id="formEditar">
         <div class="form-group">
             <label for="forInputID">ID</label>
-            <p>Cliente: @Html.DisplayFor(model => model.ID)</p>
+            <input type="number" class="form-control" id="inputNomeId" name="ID" aria-describedby="nomeHelp" value="@Html.DisplayFor(model => model.ID)" readonly>
         </div>
         <div class="form-group">
             <label for="forInputNome">Nome</label>
@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
             <label for="forInputCpf">CPF</label>
-            <input type="text" class="form-control" id="inputCpfId" name="Cpf" aria-describedby="cpfHelp" placeholder="Digite seu CPF (apenas números)" readonly>
+            <input type="text" class="form-control" id="inputCpfId" name="Cpf" aria-describedby="cpfHelp" value="@Html.DisplayFor(model => model.Cpf)" readonly>
         </div>
         <div class="form-group">
             <label for="forInputDataNascimento">Data de Nascimento</label>

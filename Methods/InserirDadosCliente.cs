@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using CadastroCliente.Data;
+using simple_mvc.Data;
 using simple_mvc.Models;
 
 namespace simple_mvc.Methods
@@ -15,7 +15,7 @@ namespace simple_mvc.Methods
                 || string.IsNullOrEmpty(Sexo) || Cep.Length < 8 || string.IsNullOrEmpty(Endereco) || string.IsNullOrEmpty(Numero)
                 || string.IsNullOrEmpty(Bairro) || string.IsNullOrEmpty(Estado) || string.IsNullOrEmpty(Cidade))
             {
-                return "Todos os campos além do 'Complemento' precisam ser preenchidos.";
+                return "Todos os campos além do 'Complemento' precisam ser preenchidos corretamente.";
             }
 
             using (var db = new MvcContext()) {

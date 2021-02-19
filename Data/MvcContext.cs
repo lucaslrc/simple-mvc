@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using simple_mvc.Models;
 
-namespace CadastroCliente.Data
+namespace simple_mvc.Data
 {
     public class MvcContext : DbContext
     {
