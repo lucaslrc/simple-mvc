@@ -23,6 +23,12 @@ namespace simple_mvc.Methods
                 try 
                 {
                     var existingUser = db.Clientes.Any(x => x.Cpf == Cpf);
+                    
+                    if (existingUser)
+                    {
+                        return "CPF já está em uso, por favor tente utilizando outro.";    
+                    }
+
                     db.Clientes.Add(new Cliente {
                         Nome = Nome,
                         Cpf = Cpf,
